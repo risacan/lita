@@ -1,0 +1,100 @@
+ja:
+  lita:
+    adapters:
+      shell:
+        startup_message: セッションを終了するためには "exit" または "quit" を入力してください。
+    core:
+      register_adapter:
+        block_or_class_required: Lita.register_adapter には引数が2つのクラスが必要です。
+      register_handler:
+        block_or_class_required: Lita.register_handler には引数が1つのクラスが必要です。
+    adapter:
+      method_not_implemented: "このアダプターには #%{method} が実装されていません。"
+    cli:
+      no_gemfile_warning: >-
+        デフォルトの "start" コマンドはLitaプロジェクト内で実行しなければなりません。 "lita new" を実行して
+        新しくLitaプロジェクトを作成するか、 `lita help` でコマンドを確認してください。
+      travis_question: Travis CI でプラグインをテストしますか？ ("yes" または "no" で入力してください。デフォルトは "no" です。)
+      coveralls_question: >-
+        SimpleCov と Coveralls.io を使ってコードカバレッジを生成しますか？ ("yes" または "no" で入力してください。デフォルトは "no" です。)
+      license_notice: >-
+        このプラグインをオープンソースとして公開する場合、レポジトリのルートディレクトリにLICENSEファイルの追加を検討してください。
+
+        オープンソースのライセンスについてはこちらで確認できます。 http://choosealicense.com/.
+      badges_message: >-
+        プラグインのGitレポジトリをGitHubでホストする場合、ビルドステータスとコードカバレッジバッジをREADMEに自動的に追加できます。
+      badges_question: >-
+        バッジを追加しますか？ ("yes" または "no" で入力してください。デフォルトは "no" です。)
+      github_user_question: GitHub usernameはなんですか。
+      badges_reminder: >-
+        プラグインのREADMEにバッジを追加するには、GitHubでホストする必要があります。更に、Travic CIとCoveralls.ioでプロジェクトの設定を行う必要があります。
+      minimum_ruby_version: >-
+        Lita 6.0 は Ruby %{required_version} か、それ以上の必要があります。現在 %{current_version} を利用しているため、できるだけアップグレードしてください。
+      no_default_handlers: |
+        Lita 5.0 では、デフォルトのハンドラーは別の lita-default-handlers というgemに切り出されています。
+        Lita 5 はこのgemに強く依存しているため、このgemをデフォルトでロードします。しかし、Lita 6.0 では、デフォルトのハンドラーはLitaプロジェクトのGemfileで指定されたときのみロードされます。
+        次の行をLitaプロジェクトのGemfileに追加してください。
+
+          gem "lita-default-handlers"
+    config:
+      exception: |
+        Lita コンフィギュレーションファイルが処理できません。 例外は以下です:
+        %{message}
+        フルバックとレース:
+        %{backtrace}
+      missing_required_adapter_attribute: >-
+        "%{attribute}" を設定するには "%{adapter}" アダプターが必要です。
+      missing_required_handler_attribute: >-
+        "%{attribute}" を設定するには "%{adapter}" ハンドラーが必要です。
+      type_error: >-
+        設定タイプエラー： "%{attribute}"は %{types} のどれかである必要があります。
+      validation_error: >-
+        "%{attribute}" はバリデーションエラーです。: %{message}
+    handler:
+      dispatch: "%{handler}#%{method}へのメッセージを処理しています。"
+      exception: |
+        %{handler} がクラッシュしました。例外:
+        %{message}
+        フルバックトレース:
+        %{backtrace}
+    http:
+      exception: |
+        Litaのビルトインサーバーがスタートできません。例外:
+        %{message}
+        フルバックトレース:
+        %{backtrace}
+    plugin:
+      name_required: 匿名クラスのプラグインにはネームスペースをセットするか、 self.name を定義してください。
+    redis:
+      exception: |
+        LitaがRedisに接続できません。例外:
+        %{message}
+        フルバックトレース:
+        %{backtrace}
+      test_mode_exception: |
+        LitaがRedisに接続できません。例外:
+        %{message}
+    robot:
+      unknown_adapter: "不明なアダプター: :%{adapter}."
+    rspec:
+      full_suite_required: Lita::RSpec には RSpec::Mocks と RSpec::Expectations の両方が必要です。
+      version_3_required: Lita::RSpecを利用するには、 RSpec::Core 3 かそれ以上が必要です。
+      rack_test_required: Lita::RSpec の `http` メソッドを利用するために Rack::Test が必要です。
+      lita_3_compatibility_mode: >-
+        WARNING: Lita 3の互換モードはLita 5で廃止され、Lita 6で削除されます。もはや影響はありません。Lita.version_3_compatibility_modeの利用を削除してください。
+      route_failure: |-
+        "%{message}"メッセージが:%{route}にルーティングされるはずですが、されませんでした。
+      negative_route_failure: |-
+        "%{message}"メッセージが:%{route}にルーティングされないはずでしたが、されました。
+      http_route_failure: |-
+        "%{method} %{path}"へのリクエストが:%{route}にルーティングされるはずでしたが、されませんでした。
+      negative_http_route_failure: |-
+        "%{method} %{path}"へのリクエストが:%{route}にルーティングされないはずでしたが、されました。
+      event_subscription_failure: |-
+        トリガーイベント"%{event}"により:%{route}が呼び出されるはずでしたが、されませんでした。
+      negative_event_subscription_failure: |-
+        トリガーイベント"%{event}"により:%{route}が呼び出されないはずでしたが、されました。
+    source:
+      user_or_room_required: ユーザーかルームのどちらかが必要です。
+    template:
+      missing_template: "%{path} にテンプレートファイルがありません。"
